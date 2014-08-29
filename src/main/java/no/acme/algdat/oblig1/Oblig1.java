@@ -57,9 +57,25 @@ public class Oblig1
 	}
 
 	// Oppgave 3, issue 3
-	public static int antallUlikeSortert(int[] a){
-		return 1;
-	}
+    public static int antallUlikeSortert(int[] a){
+        //sjekk om a er sortert stigende
+        int x = 0;
+        int antall = 0;
+
+        for (int i = 0; i < a.length; i++){
+            if ( a[i] >= x){
+                if (a[i]!= x){
+                    antall++;
+                }
+                x = a[i];
+            }
+            else{
+                throw new IllegalStateException("Arrayet er ikke sortert stigende");
+            }
+        }
+        return antall;
+        //returner antall ulike verdier
+    }
 
 	// Oppgave 4, issue 4
 	public static int antallUlikeUsortert(int[] a){

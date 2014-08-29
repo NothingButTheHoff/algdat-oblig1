@@ -10,12 +10,11 @@ import java.util.NoSuchElementException;
 public class Oblig1
 {
     public static void main(String[] args){
-		char[] tekst = "ABCDEFGHIJ".toCharArray();
-		System.out.println(tekst);
-		rotasjon(tekst, 3);
-		System.out.println(tekst);
-		rotasjon(tekst, -2);
-		System.out.println(tekst);
+		String a = flett("ABC","DEFGH");
+		String b = flett("IJKLMN","OPQ");
+		String c = flett("","AB");
+
+		System.out.println(a + " " + b + " " + c);
 	}
 
 	// Oppgave 1, issue 1
@@ -139,7 +138,27 @@ public class Oblig1
 	}
 
 	// Oppgave 7a, issue 7
-	public static String flett(String s, String t){ return "Ikke implementert"; }
+	public static String flett(String s, String t){
+		char[] txt = new char[s.length()+t.length()];
+
+		char[] a = s.toCharArray();
+		char[] b = t.toCharArray();
+
+		int ac = 0;
+		int bc = 0;
+		int j = 0;
+
+		for(int i=0; i < Math.max(s.length(), t.length()); i++){
+			if(ac < s.length()){
+				txt[j++] = a[ac++];
+			}
+			if(bc < t.length()){
+				txt[j++] = b[bc++];
+			}
+		}
+
+		return String.valueOf(txt);
+	}
 
 	// Oppgave 7b, issue 8
 	public static String flett(String... s){ return "Ikke implementert"; }

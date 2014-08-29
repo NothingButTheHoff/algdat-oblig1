@@ -1,6 +1,5 @@
 package no.acme.algdat.oblig1;
 
-import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 /**
@@ -11,9 +10,10 @@ import java.util.NoSuchElementException;
 public class Oblig1
 {
     public static void main(String[] args){
-		int a[] = { 15,5,4,8,12,3,6,13,17,2,12,10,17,5,13,5,9,20,11 };
-		sortering(a);
-		System.out.println(Arrays.toString(a));
+		char[] tekst = "EVEN".toCharArray();
+		System.out.println(tekst);
+		rotasjon(tekst);
+		System.out.println(tekst);
 	}
 
 	// Oppgave 1, issue 1
@@ -67,7 +67,19 @@ public class Oblig1
 	}
 
 	// Oppgave 5, issue 5
-	public static void rotasjon(char[] a){}
+	public static void rotasjon(char[] a){
+		if(a.length < 2){
+			return;
+		}
+
+		char k = a[a.length-1];
+
+		for(int i=a.length-1;i>=1;i--){
+			a[i] = a[i-1];
+		}
+
+		a[0] = k;
+	}
 
 	// Oppgave 6, issue 6
 	public static void rotasjon(char[] a, int k){}

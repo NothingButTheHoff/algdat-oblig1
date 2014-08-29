@@ -104,6 +104,8 @@ public class Oblig1
 			return;
 		}
 
+		k %= n;
+
 		char[] tmp = new char[Math.abs(k)];
 		int c = 0;
 

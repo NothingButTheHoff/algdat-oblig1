@@ -10,9 +10,11 @@ import java.util.NoSuchElementException;
 public class Oblig1
 {
     public static void main(String[] args){
-		char[] tekst = "EVEN".toCharArray();
+		char[] tekst = "ABCDEFGHIJ".toCharArray();
 		System.out.println(tekst);
-		rotasjon(tekst);
+		rotasjon(tekst, 3);
+		System.out.println(tekst);
+		rotasjon(tekst, -2);
 		System.out.println(tekst);
 	}
 
@@ -22,19 +24,17 @@ public class Oblig1
 			throw new NoSuchElementException("Tabllen kan ikke være tom");
 		}
 
-		int[] tall = a;
-
 		int temp = 0;
 
-		for(int i=0;i<tall.length-1;i++){
-			if(tall[i] > tall[i+1]){
-				temp = tall[i];
-				tall[i] = tall[i+1];
-				tall[i+1] = temp;
+		for(int i=0;i<a.length-1;i++){
+			if(a[i] > a[i+1]){
+				temp = a[i];
+				a[i] = a[i+1];
+				a[i+1] = temp;
 			}
 		}
 
-		return tall[tall.length-1];
+		return a[a.length-1];
 	}
 
 	// Oppgave 2, issue 2
@@ -82,7 +82,45 @@ public class Oblig1
 	}
 
 	// Oppgave 6, issue 6
-	public static void rotasjon(char[] a, int k){}
+	public static void rotasjon(char[] a, int k){
+		int n = a.length;
+
+		if(n<2){
+			return;
+		}
+
+		char[] tmp = new char[Math.abs(k)];
+		int c = 0;
+
+		// Mot høyre
+		if(k>0) {
+			for (int i = n-k; i<n; i++) {
+				tmp[c++] = a[i];
+			}
+
+			for (int i = n-k-1; i >= 0; i--) {
+				a[k+i] = a[i];
+				if(i < k){
+					a[i] = tmp[i];
+				}
+			}
+		// Mot venstre
+		} else if(k<0){
+			k = Math.abs(k);
+
+			for(int i=0; i<k; i++){
+				tmp[i] = a[i];
+			}
+
+			for(int i=0; i<=n-k-1; i++){
+				a[i] = a[k+i];
+			}
+
+			for(int i=0; i<tmp.length; i++){
+				a[n-i-1] = tmp[k-i-1];
+			}
+		}
+	}
 
 	// Oppgave 7a, issue 7
 	public static String flett(String s, String t){ return "Ikke implementert"; }

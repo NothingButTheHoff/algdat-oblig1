@@ -55,4 +55,38 @@ public class Oblig1
 			}
 		}
 	}
+
+	// Oppgave 3, issue 3
+	public static int antallUlikeSortert(int[] a){
+		return 1;
+	}
+
+	// Oppgave 4, issue 4
+	public static int antallUlikeUsortert(int[] a){
+		return 1;
+	}
+
+	// Oppgave 5, issue 5
+	public static void rotasjon(char[] a){}
+
+	// Oppgave 6, issue 6
+	public static void rotasjon(char[] a, int k){}
+
+	// Oppgave 7a, issue 7
+	public static String flett(String s, String t){ return "Ikke implementert"; }
+
+	// Oppgave 7b, issue 8
+	public static String flett(String... s){ return "Ikke implementert"; }
+
+	// Oppgave 8a, issue 9
+	public static int[] tredjeMaks(int[] a){ return new int[] {}; }
+
+	// Oppgave 8b, issue 10
+	public static void tredjeMaksTest(){}
+
+	// Oppgave 9, issue 11
+	public static int[] kMinst(int[] a, int k){ return new int[]{}; }
+
+	// Oppgave 10, issue 12
+	public static boolean inneholdt(String a, String b){ return false; }
 }

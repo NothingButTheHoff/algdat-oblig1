@@ -225,24 +225,31 @@ public class Oblig1
 			throw new IllegalArgumentException("k("+k+") kan ikke være mindre enn 1 eller større enn lengden av a = ("+a.length+")");
 		}
 
-		int[] verdier = new int[k];
-		System.arraycopy(a, 0, verdier, 0, k);
+		int[] r = new int[k];
 
+		for(int i=0;i<k;i++){
+			r[i] = a[i];
+		}
 
-		// Sorter
-		Arrays.sort(verdier);
+		Arrays.sort(r);
 
 		for(int i=k;i<a.length;i++){
-			for(int j=k-1;j>=0;j--){
-				if(a[i] < verdier[j]){
-					verdier[j] = a[i];
-					Arrays.sort(verdier); // Flaskehals
-					break;
+			if(a[i] < r[k-1]){
+				for(int j=k-1;j>0;j--){
+					if(a[i] >= r[j]){
+						r[j+1] = a[i];
+						break;
+					} else {
+						r[j] = r[j-1];
+					}
+				}
+				if(a[i] < r[0]) {
+					r[0] = a[i];
 				}
 			}
 		}
 
-		return verdier;
+		return r;
 	}
 
 	// Oppgave 10, issue 12

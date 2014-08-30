@@ -10,11 +10,8 @@ import java.util.NoSuchElementException;
 public class Oblig1
 {
     public static void main(String[] args){
-		String a = flett("ABC","DEFGH");
-		String b = flett("IJKLMN","OPQ");
-		String c = flett("","AB");
-
-		System.out.println(a + " " + b + " " + c);
+		String a = flett("AM ","L","GEDS","ORATKRR","","R TRTE","IO","TGAUU");
+		System.out.println(a);
 	}
 
 	// Oppgave 1, issue 1
@@ -163,7 +160,27 @@ public class Oblig1
 	}
 
 	// Oppgave 7b, issue 8
-	public static String flett(String... s){ return "Ikke implementert"; }
+	public static String flett(String... s){
+		String r = "";
+		int l = 0;
+
+		for(String x : s){
+			l += x.length();
+		}
+
+		int[] c = new int[s.length];
+
+		for (int i=0;i<l;i++){
+			for(int j=0;j<s.length;j++){
+				if(c[j] < s[j].length()){
+					r += s[j].toCharArray()[c[j]];
+					c[j]++;
+				}
+			}
+		}
+
+		return r;
+	}
 
 	// Oppgave 8a, issue 9
 	public static int[] tredjeMaks(int[] a){ return new int[] {}; }

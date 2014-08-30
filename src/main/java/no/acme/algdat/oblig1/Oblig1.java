@@ -83,12 +83,33 @@ public class Oblig1
         //returner antall ulike verdier
     }
 
-	// Oppgave 4, issue 4
-	public static int antallUlikeUsortert(int[] a){
-		return 1;
-	}
+    //OPPGAVE 4 oblig
+    public static int antallUlikeUsortert(int[] a){
+        //returner antall ulike verdier
+        if (a.length < 1)
+            return 0;
 
-	// Oppgave 5, issue 5
+        else {
+            int antall = a.length;
+            int x = a[0];
+            int y = a[0];
+
+            for (int i = 0; i < a.length; i++) {
+                for (int j = i+1; j < a.length; j++){
+                    if (a[j] == a[i]){
+                        antall--;
+                        break;
+                    }
+                }
+            }
+
+
+            return antall;
+        }
+        //hvis lendge == 0 return 0;
+    }
+
+    // Oppgave 5, issue 5
 	public static void rotasjon(char[] a){
 		if(a.length < 2){
 			return;

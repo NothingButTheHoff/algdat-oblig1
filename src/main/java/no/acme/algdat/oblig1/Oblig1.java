@@ -85,28 +85,23 @@ public class Oblig1
 
     //OPPGAVE 4 oblig
     public static int antallUlikeUsortert(int[] a){
-        //returner antall ulike verdier
-        if (a.length < 1)
-            return 0;
+		//hvis lengde == 0 return 0;
+        if (a.length < 1) {
+			return 0;
+		}
 
-        else {
-            int antall = a.length;
-            int x = a[0];
-            int y = a[0];
+		int antall = a.length;
 
-            for (int i = 0; i < a.length; i++) {
-                for (int j = i+1; j < a.length; j++){
-                    if (a[j] == a[i]){
-                        antall--;
-                        break;
-                    }
-                }
-            }
+		for (int i = 0; i < a.length; i++) {
+			for (int j = i+1; j < a.length; j++){
+				if (a[j] == a[i]){
+					antall--;
+					break;
+				}
+			}
+		}
 
-
-            return antall;
-        }
-        //hvis lendge == 0 return 0;
+		return antall;
     }
 
     // Oppgave 5, issue 5

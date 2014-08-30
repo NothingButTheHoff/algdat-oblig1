@@ -1,5 +1,6 @@
 package no.acme.algdat.oblig1;
 
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 /**
@@ -10,8 +11,17 @@ import java.util.NoSuchElementException;
 public class Oblig1
 {
     public static void main(String[] args){
-		String a = flett("AM ","L","GEDS","ORATKRR","","R TRTE","IO","TGAUU");
-		System.out.println(a);
+		int[] minst = {3,2,8,5,6,10,4,9,1,7};
+		int[] r = kMinst(minst, 2);
+		int[] r1 = kMinst(minst, minst.length);
+		int[] r3 = kMinst(minst, 3);
+		int[] r4 = kMinst(minst, 4);
+		int[] r5 = kMinst(minst, 5);
+		System.out.println(Arrays.toString(r));
+		System.out.println(Arrays.toString(r3));
+		System.out.println(Arrays.toString(r4));
+		System.out.println(Arrays.toString(r5));
+		System.out.println(Arrays.toString(r1));
 	}
 
 	// Oppgave 1, issue 1
@@ -189,7 +199,30 @@ public class Oblig1
 	public static void tredjeMaksTest(){}
 
 	// Oppgave 9, issue 11
-	public static int[] kMinst(int[] a, int k){ return new int[]{}; }
+	public static int[] kMinst(int[] a, int k){
+		if(k < 1 || k > a.length){
+			throw new IllegalArgumentException("k("+k+") kan ikke være mindre enn 1 eller større enn lengden av a = ("+a.length+")");
+		}
+
+		int[] verdier = new int[k];
+		System.arraycopy(a, 0, verdier, 0, k);
+
+
+		// Sorter
+		Arrays.sort(verdier);
+
+		for(int i=k;i<a.length;i++){
+			for(int j=k-1;j>=0;j--){
+				if(a[i] < verdier[j]){
+					verdier[j] = a[i];
+					Arrays.sort(verdier); // Flaskehals
+					break;
+				}
+			}
+		}
+
+		return verdier;
+	}
 
 	// Oppgave 10, issue 12
 	public static boolean inneholdt(String a, String b){ return false; }

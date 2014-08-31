@@ -198,10 +198,14 @@ public class Oblig1
 		return r;
 	}
 
-	// Oppgave 8a, issue 9
+
+    //OPPGAVE 8a oblig
     public static int[] tredjeMaks(int[] a){
         if (a.length < 3) {
             throw new IllegalArgumentException("Arrayet er for kort!");
+        }
+        else if( a == null){
+            throw new NullPointerException("Array kan ikke være null");
         }
         else{
             int posM   = 0;
@@ -275,11 +279,49 @@ public class Oblig1
             return new int[] {posM, posNM, posNNM};
 
         }
-    }
-	// Oppgave 8b, issue 10
-	public static void tredjeMaksTest(){}
+    }// end of tredjemaks()
 
-	// Oppgave 9, issue 11
+
+
+    //Oppgave 8b oblig
+    public static void tredjeMaksTest(){
+
+        //permutasjoner av de tre første verdiene
+        int[][] test1 = { {1,2,3},{1,3,2},{3,2,1},{3,1,2},{2,3,1},{2,1,3} };
+        int[][] test2 = { {2,1,0},{1,2,0},{0,1,2},{0,2,1},{1,0,2},{2,0,1} };
+        //sjekk alle permutasjoner
+        for (int i = 0;i < test1.length; i ++){
+            if (! Arrays.equals(tredjeMaks(test1[i]), test2[i])){
+                System.out.println("Feil i metoden tredjeMaks(). Returnerer feil indekser!");
+            }
+        }
+
+        //sjekk for null tabeller
+        try {
+            tredjeMaks(null);
+        }
+        catch (Exception e) {
+            if (!(e instanceof NullPointerException)){
+                System.out.println("Kodefeil: Feil unntak for en tom tabell!");
+            }
+        }
+
+
+        //sjekk for feil tabellformat, i dette tilfelle et tomt array
+        int[] a = {};
+
+        try {
+            tredjeMaks(a);
+        }catch (Exception e){
+            if (!(e instanceof IllegalArgumentException)){
+                System.out.println("Feil! Mangler håndtering av feil tabellformat");
+            }
+        }
+    } // end of tredjeMaksTest()
+
+
+
+    // Oppgave 9, issue 11
 	public static int[] kMinst(int[] a, int k){
 		if(k < 1 || k > a.length){
 			throw new IllegalArgumentException("k("+k+") kan ikke være mindre enn 1 eller større enn lengden av a = ("+a.length+")");

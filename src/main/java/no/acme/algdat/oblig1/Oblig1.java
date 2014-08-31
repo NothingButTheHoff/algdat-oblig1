@@ -4,16 +4,17 @@ import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 /**
- * Even Holthe <s189124@stud.hioa.no>
- * Per Erik Finstad <sXXXXXX@stud.hioa.no>
+ * Obligatorisk oppgave 1 i Algoritmer og datastrukturer
+ *
+ *
+ *	Anvendt datateknologi, 3. året
+ *	––––––––––––––––––––––––––––––––––––––––––
+ *  Even Holthe			<s189124@stud.hioa.no>
+ *  Per Erik Finstad	<s189138@stud.hioa.no>
  *
  */
 public class Oblig1
 {
-    public static void main(String[] args){
-		System.out.println(inneholdt("FOR", "RABARBRA"));
-	}
-
 	// Oppgave 1, issue 1
 	public static int maks(int[] a){
 		if(a.length == 0){
@@ -284,6 +285,7 @@ public class Oblig1
 
 
     //Oppgave 8b oblig
+	// Her må det skrives til skjerm, for opplyse om feil og mangler. Dette ref. programkode 1.1.7 a)
     public static void tredjeMaksTest(){
 
         //permutasjoner av de tre første verdiene

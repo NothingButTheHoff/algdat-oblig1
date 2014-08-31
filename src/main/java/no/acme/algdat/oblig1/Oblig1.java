@@ -199,8 +199,83 @@ public class Oblig1
 	}
 
 	// Oppgave 8a, issue 9
-	public static int[] tredjeMaks(int[] a){ return new int[] {}; }
+    public static int[] tredjeMaks(int[] a){
+        if (a.length < 3) {
+            throw new IllegalArgumentException("Arrayet er for kort!");
+        }
+        else{
+            int posM   = 0;
+            int posNM  = 1;
+            int posNNM = 2;
+            //sjekker og sorterer de tre første verdiene i arrayet
+            if (a[2] > a[1] && a[2] > a[0]) {
+                posM   = 2;
+                if (a[1] > a[0]){
+                    posNM  = 1;
+                    posNNM = 0;
+                }
+                else{
+                    posNM  = 0;
+                    posNNM = 1;
+                }
+            }
+            else if(a[1] > a[0] && a[1] > a[2]){
+                posM   = 1;
+                if (a[2] > a[0]){
+                    posNM  = 2;
+                    posNNM = 0;
+                }
+                else{
+                    posNM  = 0;
+                    posNNM = 2;
+                }
+            }
+            else if(a[0] > a[1] && a[0] > a[2]) {
+                posM   = 0;
+                if (a[2] > a[1]) {
+                    posNM  = 2;
+                    posNNM = 1;
+                }
+                else{
+                    posNM  = 1;
+                    posNNM = 2;
+                }
+            }
 
+            //etter sorteringen
+            int maks   = a[posM];
+            int nMaks  = a[posNM];
+            int nnMaks = a[posNNM];
+
+
+            for (int i = 3; i < a.length; i++){
+                if (a[i] > maks){
+                    nnMaks = nMaks;
+                    nMaks  = maks;
+                    maks = a[i];
+
+                    posNNM = posNM;
+                    posNM = posM;
+                    posM = i;
+                }
+                if (a[i] > nMaks && a[i] < maks){
+                    nnMaks = nMaks;
+                    nMaks = a[i];
+                    posNNM = posNM;
+                    posNM = i;
+                }
+
+
+                if (a[i] > nnMaks && a[i] < nMaks){
+                    nnMaks = a[i];
+                    posNNM = i;
+                }
+            }//end of loop
+
+            return new int[] {posM, posNM, posNNM};
+
+        }
+    }
 	// Oppgave 8b, issue 10
 	public static void tredjeMaksTest(){}
 

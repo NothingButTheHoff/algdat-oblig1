@@ -11,17 +11,7 @@ import java.util.NoSuchElementException;
 public class Oblig1
 {
     public static void main(String[] args){
-		int[] minst = {3,2,8,5,6,10,4,9,1,7};
-		int[] r = kMinst(minst, 2);
-		int[] r1 = kMinst(minst, minst.length);
-		int[] r3 = kMinst(minst, 3);
-		int[] r4 = kMinst(minst, 4);
-		int[] r5 = kMinst(minst, 5);
-		System.out.println(Arrays.toString(r));
-		System.out.println(Arrays.toString(r3));
-		System.out.println(Arrays.toString(r4));
-		System.out.println(Arrays.toString(r5));
-		System.out.println(Arrays.toString(r1));
+		System.out.println(inneholdt("FOR", "RABARBRA"));
 	}
 
 	// Oppgave 1, issue 1
@@ -248,5 +238,28 @@ public class Oblig1
 	}
 
 	// Oppgave 10, issue 12
-	public static boolean inneholdt(String a, String b){ return false; }
+	public static boolean inneholdt(String a, String b){
+		int[] x = new int[36];
+		int[] y = new int[36];
+
+		for(char c : a.toCharArray()){
+			int i = Character.getNumericValue(c);
+			x[i]++;
+		}
+
+		for(char c: b.toCharArray()){
+			int i = Character.getNumericValue(c);
+			y[i]++;
+		}
+
+		for(int i=0;i<x.length;i++){
+			if(x[i] > 0){
+				if(y[i] < x[i]){
+					return false;
+				}
+			}
+		}
+
+		return true;
+	}
 }

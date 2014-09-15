@@ -358,16 +358,17 @@ public class Oblig1
 
 	// Oppgave 10, issue 12
 	public static boolean inneholdt(String a, String b){
-		int[] x = new int[36];
-		int[] y = new int[36];
+		int[] x = new int[250];
+		int[] y = new int[250];
 
 		for(char c : a.toCharArray()){
-			int i = Character.getNumericValue(c);
+			int i = (int) c;
+			System.out.println(i);
 			x[i]++;
 		}
 
 		for(char c: b.toCharArray()){
-			int i = Character.getNumericValue(c);
+			int i = (int) c;
 			y[i]++;
 		}
 

@@ -361,24 +361,10 @@ public class Oblig1
 		int[] x = new int[250];
 		int[] y = new int[250];
 
-		for(char c : a.toCharArray()){
-			int i = (int) c;
-			x[i]++;
-		}
+		for(char c : a.toCharArray()) x[c]++;
+		for(char c : b.toCharArray()) y[c]++;
 
-		for(char c: b.toCharArray()){
-			int i = (int) c;
-			y[i]++;
-		}
-
-		for(int i=0;i<x.length;i++){
-			if(x[i] > 0){
-				if(y[i] < x[i]){
-					return false;
-				}
-			}
-		}
-
+		for(int i=0;i<x.length;i++) if(x[i] > 0) if(y[i] < x[i]) return false;
 		return true;
 	}
 }

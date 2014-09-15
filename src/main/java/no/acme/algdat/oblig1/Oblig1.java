@@ -363,7 +363,6 @@ public class Oblig1
 
 		for(char c : a.toCharArray()){
 			int i = (int) c;
-			System.out.println(i);
 			x[i]++;
 		}
 
